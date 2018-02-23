@@ -3,8 +3,7 @@
     <!-- General -->
     <string name="login_email_address">Email address</string>
     <string name="login_password">Password</string>
-    <string name="login_login">Log In</string>
-    <string name="login_signup">Sign Up</string>
-    <string name="login_terms_conditions">By joining you agree to our Terms &amp; Conditions</string>
-    <string name="login_message">The presenter generated the number %1$d and this view is displaying it</string>
+    <string name="login_login">LOG IN</string>
+    <string name="login_signup">SIGN UP</string>
+    <string name="login_terms_conditions">By joining you agree to our <u><a href="http://www.google.com.ar">Terms &amp; Conditions</a></u></string>
 </resources>
