@@ -7,29 +7,40 @@
     android:orientation="vertical"
     android:padding="1sp">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:src="@drawable/wolox_icon"
-        />
+        android:layout_weight="2">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_cover"
+            style="@style/WoloxLogoImage"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/wolox_logo"
+            />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/fragment_login_email_address_edit_text"
+        style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:gravity="left"
         android:text="@string/login_email_address"
-        android:textSize="18sp"
-        style="@style/EditTextTheme"
-        />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/fragment_login_password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:gravity="left"
         android:text="@string/login_password"
         android:textSize="18sp"
