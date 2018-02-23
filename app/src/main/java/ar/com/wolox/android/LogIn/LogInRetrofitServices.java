@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example;
+package ar.com.wolox.android.LogIn;
 
 import android.support.annotation.NonNull;
 
@@ -9,7 +9,7 @@ import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
-public class ExampleRetrofitServices extends RetrofitServices {
+public class LogInRetrofitServices extends RetrofitServices {
 
     @NonNull
     @Override
@@ -29,7 +29,7 @@ public class ExampleRetrofitServices extends RetrofitServices {
             builder.addInterceptor(loggerInterceptor);
 
             // Add Chuck interceptor to log HTTP request in a notification
-            builder.addInterceptor(new ChuckInterceptor(BootstrapApplication.getInstance()));
+            builder.addInterceptor(new ChuckInterceptor(TrainingApplication.getInstance()));
         }
     }
 }

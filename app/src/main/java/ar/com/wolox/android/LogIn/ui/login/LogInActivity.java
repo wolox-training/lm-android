@@ -1,10 +1,10 @@
-package ar.com.wolox.android.example.ui;
+package ar.com.wolox.android.LogIn.ui.login;
 
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
-public class ExampleActivity extends WolmoActivity {
+public class LogInActivity extends WolmoActivity {
 
     @Override
     protected int layout() {
@@ -13,6 +13,6 @@ public class ExampleActivity extends WolmoActivity {
 
     @Override
     protected void init() {
-        replaceFragment(R.id.activity_base_content, ExampleFragment.newInstance());
+        replaceFragment(R.id.activity_base_content, LogInFragment.newInstance());
     }
 }

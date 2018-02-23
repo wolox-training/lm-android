@@ -1,15 +1,15 @@
-package ar.com.wolox.android.example;
+package ar.com.wolox.android.LogIn;
 
 import com.squareup.leakcanary.LeakCanary;
 
 import ar.com.wolox.wolmo.networking.retrofit.NetworkingApplication;
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
 
-public class BootstrapApplication extends NetworkingApplication {
+public class TrainingApplication extends NetworkingApplication {
 
     @Override
     public RetrofitServices getRetrofitServices() {
-        return new ExampleRetrofitServices();
+        return new LogInRetrofitServices();
     }
 
     @Override

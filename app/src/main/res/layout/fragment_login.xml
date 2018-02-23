@@ -5,34 +5,48 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16sp">
+    android:padding="1sp">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="8dp"
-        android:gravity="top|center_horizontal"
-        android:text="@string/example_title"
-        android:textSize="16sp"
+        android:layout_weight="2.5"
         />
 
-    <TextView
-        android:id="@+id/fragment_example_message_text_view"
+    <EditText
+        android:id="@+id/fragment_login_email_address_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:gravity="center"
-        android:text="@string/example_textview"
+        android:gravity="left"
+        android:text="@string/login_email_address"
+        android:textSize="16sp"
+        />
+
+    <EditText
+        android:id="@+id/fragment_login_password_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="left"
+        android:text="@string/login_password"
         android:textSize="16sp"
         />
 
     <Button
-        android:id="@+id/fragment_example_randomize_button"
+        android:id="@+id/fragment_login_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/example_randomize"
+        android:text="@string/login_login"
+        />
+
+    <Button
+        android:id="@+id/fragment_login_signup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/login_signup"
         />
 
     <TextView
@@ -41,7 +55,7 @@
         android:layout_weight="1"
         android:layout_margin="8dp"
         android:gravity="bottom|center_horizontal"
-        android:text="@string/example_wolox"
+        android:text="@string/login_terms_conditions"
         android:textSize="16sp"
         />
 
