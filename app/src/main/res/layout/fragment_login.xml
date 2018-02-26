@@ -21,7 +21,7 @@
             android:background="@drawable/login_cover_grad_colour"
             android:scaleType="centerCrop"
             android:src="@drawable/login_cover"
-            android:alpha="0.4"
+            android:alpha="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
