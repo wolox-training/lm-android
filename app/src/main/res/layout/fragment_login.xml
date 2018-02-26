@@ -1,61 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="1sp">
+    android:padding="1dp"
+    android:clipChildren="false">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_login_picture"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="1">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/fragment_login_logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/login_cover_grad_colour"
+            android:scaleType="centerCrop"
             android:src="@drawable/login_cover"
-            style="@style/WoloxLogoImage"
-            />
+            android:alpha="0.4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            style="@style/WoloxLogoImage"/>
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/wolox_logo"
-            />
-    </RelativeLayout>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/login_cover_grad_colour"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_logo"
+            app:layout_constraintBottom_toBottomOf="@id/fragment_login_logo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/wolox_logo_large" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <EditText
         android:id="@+id/fragment_login_email_address_edit_text"
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:gravity="left"
-        android:text="@string/login_email_address"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:text="@string/login_email_address" />
 
     <EditText
         android:id="@+id/fragment_login_password_edit_text"
+        style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:gravity="left"
-        android:text="@string/login_password"
         android:textSize="18sp"
-        style="@style/EditTextTheme"
-        />
+        android:text="@string/login_password" />
 
     <Button
         android:id="@+id/fragment_login_login_button"
+        style="@style/LogInButtonTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:textSize="16sp"
-        android:text="@string/login_login"
-        style="@style/LogInButtonTheme"
-        />
+        android:text="@string/login_login" />
 
     <Button
         android:id="@+id/fragment_login_signup_button"
@@ -64,8 +89,7 @@
         android:layout_margin="8dp"
         android:textSize="16sp"
         android:text="@string/login_signup"
-        style="@style/SignUpButtonTheme"
-        />
+        style="@style/SignUpButtonTheme" />
 
     <TextView
         android:id="@+id/fragment_login_terms"
@@ -76,7 +100,6 @@
         android:gravity="bottom|center_horizontal"
         android:textSize="16sp"
         android:text="@string/login_terms_conditions"
-        style="@style/EditTextTheme"
-        />
+        style="@style/EditTextTheme" />
 
 </LinearLayout>
