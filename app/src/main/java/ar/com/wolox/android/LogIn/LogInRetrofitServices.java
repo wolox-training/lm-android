@@ -32,4 +32,6 @@ public class LogInRetrofitServices extends RetrofitServices {
             builder.addInterceptor(new ChuckInterceptor(TrainingApplication.getInstance()));
         }
     }
+
+
 }

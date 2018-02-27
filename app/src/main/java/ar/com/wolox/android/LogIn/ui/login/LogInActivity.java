@@ -15,4 +15,6 @@ public class LogInActivity extends WolmoActivity {
     protected void init() {
         replaceFragment(R.id.activity_base_content, LogInFragment.newInstance());
     }
+
+
 }
