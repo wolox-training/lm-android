@@ -27,15 +27,15 @@ public class RootActivity extends WolmoActivity {
         if (userKey.equals(DefaultUSER)) {
             // Call LogInActivity
             Intent logInIntent = new Intent(this, LogInActivity.class);
-            logInIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            logInIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            logInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(logInIntent);
-            finish();
         }else {
             // Call HomeActivity
             Intent homeIntent = new Intent(this, HomeActivity.class);
-            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(homeIntent);
-            finish();
         }
     }
 }

@@ -37,16 +37,16 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
             }else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()){
                     mEmailTxt.setError("Please insert a valid email address");
             }else{
+               // getPresenter().doLogin(mEmailTxt.getText().toString());
                 SharedPreferences sharedPref = getActivity().getSharedPreferences(USER,Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString(USER, mEmailTxt.getText().toString());
                 editor.commit();
                 Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
-                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(homeIntent);
-                getActivity().finish();
             }
-
     }
 
 
@@ -71,6 +71,8 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
     }
 
 
+    @Override
+    public void onLoginFinished() {
 
-
+    }
 }

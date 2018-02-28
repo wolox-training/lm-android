@@ -60,7 +60,7 @@
         android:layout_marginRight="16dp"
         android:gravity="left"
         android:textSize="18sp"
-        android:text="@string/login_email_address" />
+        android:hint="@string/login_email_address" />
 
     <EditText
         android:id="@+id/fragment_login_password_edit_text"
@@ -71,7 +71,7 @@
         android:layout_marginRight="16dp"
         android:gravity="left"
         android:textSize="18sp"
-        android:text="@string/login_password" />
+        android:hint="@string/login_password" />
 
     <Button
         android:id="@+id/fragment_login_login_button"

@@ -1,6 +1,8 @@
 package ar.com.wolox.android.training.ui.login;
 
 
+import android.widget.TextView;
+
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
 public class LogInPresenter extends BasePresenter<LogInView> {
@@ -11,4 +13,7 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     }
 
 
+    public void doLogin(TextView mEmailTxt) {
+        //getView().onLoginFinished();
+    }
 }
