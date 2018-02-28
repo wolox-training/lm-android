@@ -51,7 +51,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <EditText
-        android:id="@+id/fragment_login_email_address_edit_text"
+        android:id="@+id/fragment_login_email_edit_text"
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:layout_marginRight="16dp"
         android:gravity="left"
         android:textSize="18sp"
-        android:hint="@string/login_email_address" />
+        android:hint="@string/login_signup_email" />
 
     <EditText
         android:id="@+id/fragment_login_password_edit_text"
@@ -71,7 +71,7 @@
         android:layout_marginRight="16dp"
         android:gravity="left"
         android:textSize="18sp"
-        android:hint="@string/login_password" />
+        android:hint="@string/login_signup_password" />
 
     <Button
         android:id="@+id/fragment_login_login_button"
@@ -92,14 +92,14 @@
         style="@style/SignUpButtonTheme" />
 
     <TextView
-        android:id="@+id/fragment_login_terms"
+        android:id="@+id/fragment_login_signup_terms"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="8dp"
         android:gravity="bottom|center_horizontal"
         android:textSize="16sp"
-        android:text="@string/login_terms_conditions"
+        android:text="@string/login_signup_terms_conditions"
         style="@style/EditTextTheme" />
 
 </LinearLayout>

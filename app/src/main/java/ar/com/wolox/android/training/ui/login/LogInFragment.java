@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.training.ui.home.HomeActivity;
+import ar.com.wolox.android.training.ui.signup.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -18,8 +19,8 @@ import butterknife.OnClick;
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogInView {
 
     private static final String USER = "USER";
-    @BindView(R.id.fragment_login_terms) TextView mTermsTxt;
-    @BindView(R.id.fragment_login_email_address_edit_text) EditText mEmailTxt;
+    @BindView(R.id.fragment_login_signup_terms) TextView mTermsTxt;
+    @BindView(R.id.fragment_login_email_edit_text) EditText mEmailTxt;
 
     // Fragments default constructors shouldn't be overridden, always prefer this method instead
     public static LogInFragment newInstance() {
@@ -49,6 +50,11 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
             }
     }
 
+    @OnClick(R.id.fragment_login_signup_button)
+        public void SignUpCall(){
+            Intent signUpIntent = new  Intent(getActivity(), SignUpActivity.class);
+            startActivity(signUpIntent);
+    }
 
     @Override
     public int layout() {

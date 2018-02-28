@@ -32,6 +32,11 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity
+            android:name=".training.ui.signup.SignUpActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

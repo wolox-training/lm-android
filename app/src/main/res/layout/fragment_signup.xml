@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="1dp"
+    android:clipChildren="false">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:clipChildren="false">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wolox_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/signup_signup"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/fragment_signup_email_address_edit_text"
+        style="@style/EditTextTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:hint="@string/login_signup_email" />
+
+    <EditText
+        android:id="@+id/fragment_signup_password_edit_text"
+        style="@style/EditTextTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:hint="@string/login_signup_password" />
+
+    <EditText
+        android:id="@+id/fragment_signup_confirm_password_edit_text"
+        style="@style/EditTextTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:hint="@string/signup_confirm_password" />
+
+    <TextView
+        android:id="@+id/fragment_login_signup_terms"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="16sp"
+        android:hint="@string/login_signup_terms_conditions"
+        style="@style/EditTextTheme" />
+
+    <Button
+        android:id="@+id/fragment_login_signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="16sp"
+        android:text="@string/signup_join"
+        style="@style/SignUpButtonTheme" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
