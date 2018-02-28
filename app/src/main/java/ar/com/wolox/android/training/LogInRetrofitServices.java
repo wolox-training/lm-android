@@ -1,4 +1,4 @@
-package ar.com.wolox.android.LogIn;
+package ar.com.wolox.android.training;
 
 import android.support.annotation.NonNull;
 

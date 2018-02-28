@@ -1,24 +1,25 @@
-package ar.com.wolox.android.LogIn.ui.login;
+package ar.com.wolox.android.training.ui.login;
 
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.training.ui.home.HomeActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogInView {
 
+    private static final String USER = "USER";
     @BindView(R.id.fragment_login_terms) TextView mTermsTxt;
     @BindView(R.id.fragment_login_email_address_edit_text) EditText mEmailTxt;
-    //@BindView(R.id.fragment_login_login_button) Button mLogInBtn;
 
     // Fragments default constructors shouldn't be overridden, always prefer this method instead
     public static LogInFragment newInstance() {
@@ -35,8 +36,19 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                 mEmailTxt.setError("Please complete your email address");
             }else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()){
                     mEmailTxt.setError("Please insert a valid email address");
+            }else{
+                SharedPreferences sharedPref = getActivity().getSharedPreferences(USER,Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString(USER, mEmailTxt.getText().toString());
+                editor.commit();
+                Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
+                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeIntent);
+                getActivity().finish();
             }
+
     }
+
 
     @Override
     public int layout() {
