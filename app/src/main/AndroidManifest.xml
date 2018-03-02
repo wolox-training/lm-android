@@ -7,20 +7,29 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".LogIn.TrainingApplication"
+        android:name=".training.TrainingApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".LogIn.ui.login.LogInActivity"
+            android:name=".training.ui.RootActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".training.ui.login.LogInActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".training.ui.home.HomeActivity"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>

@@ -1,4 +1,4 @@
-package ar.com.wolox.android.LogIn.ui.login;
+package ar.com.wolox.android.training.ui.login;
 
 
 import ar.com.wolox.android.R;
@@ -15,4 +15,6 @@ public class LogInActivity extends WolmoActivity {
     protected void init() {
         replaceFragment(R.id.activity_base_content, LogInFragment.newInstance());
     }
+
+
 }

@@ -1,4 +1,4 @@
-package ar.com.wolox.android.LogIn;
+package ar.com.wolox.android.training;
 
 import android.support.annotation.NonNull;
 
@@ -32,4 +32,6 @@ public class LogInRetrofitServices extends RetrofitServices {
             builder.addInterceptor(new ChuckInterceptor(TrainingApplication.getInstance()));
         }
     }
+
+
 }

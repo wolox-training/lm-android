@@ -1,4 +1,4 @@
-package ar.com.wolox.android.LogIn.ui.login;
+package ar.com.wolox.android.training.ui.login;
 
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
