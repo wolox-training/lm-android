@@ -21,7 +21,6 @@
     <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textColor">#9c9c9c</item>
         <item name="android:textColorLink"> #9c9c9c</item>
-        <item name="android:textAllCaps">true</item>
     </style>
 
 </resources>
