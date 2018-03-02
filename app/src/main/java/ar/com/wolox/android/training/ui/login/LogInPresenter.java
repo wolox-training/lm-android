@@ -13,7 +13,8 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     }
 
 
-    public void doLogin(TextView mEmailTxt) {
+    public void doLogin(TextView mEmailTxt, TextView mPassword) {
+
         //getView().onLoginFinished();
     }
 }

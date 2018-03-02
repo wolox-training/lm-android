@@ -21,6 +21,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
     private static final String USER = "USER";
     @BindView(R.id.fragment_login_signup_terms) TextView mTermsTxt;
     @BindView(R.id.fragment_login_email_edit_text) EditText mEmailTxt;
+    @BindView(R.id.fragment_login_password_edit_text) EditText mPasswordTxt;
 
     // Fragments default constructors shouldn't be overridden, always prefer this method instead
     public static LogInFragment newInstance() {
@@ -30,25 +31,33 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         return fragment;
     }
 
-
     @OnClick(R.id.fragment_login_login_button)
         public void LogInValidate(){
-            if (mEmailTxt.length() == 0) {
-                mEmailTxt.setError("Please complete your email address");
-            }else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()){
+        mEmailTxt.setError(null);
+        mPasswordTxt.setError(null);
+            if (mEmailTxt.length() != 0 && mPasswordTxt.length() != 0) {
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()) {
                     mEmailTxt.setError("Please insert a valid email address");
-            }else{
-               // getPresenter().doLogin(mEmailTxt.getText().toString());
-                SharedPreferences sharedPref = getActivity().getSharedPreferences(USER,Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(USER, mEmailTxt.getText().toString());
-                editor.commit();
-                Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
-                homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(homeIntent);
+                } else {
+                    //getPresenter().doLogin(mEmailTxt,mPasswordTxt);
+                    SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(USER, mEmailTxt.getText().toString());
+                    editor.commit();
+                    Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
+                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(homeIntent);
+                }
+            } else {
+                if (mEmailTxt.length() == 0)
+                    mEmailTxt.setError("Please complete your email address");
+                if (mPasswordTxt.length() == 0)
+                    mPasswordTxt.setError("Please complete with your password");
             }
     }
+
+
 
     @OnClick(R.id.fragment_login_signup_button)
         public void SignUpCall(){
