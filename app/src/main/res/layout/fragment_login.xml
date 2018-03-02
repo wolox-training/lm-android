@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="1dp"
+    android:padding="@dimen/login_parent_padding"
     android:clipChildren="false">
 
     <android.support.constraint.ConstraintLayout
@@ -51,34 +51,34 @@
     </android.support.constraint.ConstraintLayout>
 
     <EditText
-        android:id="@+id/fragment_login_email_address_edit_text"
+        android:id="@+id/fragment_login_email_edit_text"
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/login_email_edit_text_marginTop"
+        android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
+        android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
         android:textSize="18sp"
-        android:text="@string/login_email_address" />
+        android:hint="@string/login_signup_email" />
 
     <EditText
         android:id="@+id/fragment_login_password_edit_text"
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
+        android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
         android:textSize="18sp"
-        android:text="@string/login_password" />
+        android:hint="@string/login_signup_password" />
 
     <Button
         android:id="@+id/fragment_login_login_button"
         style="@style/LogInButtonTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_button_margin"
         android:textSize="16sp"
         android:text="@string/login_login" />
 
@@ -86,20 +86,20 @@
         android:id="@+id/fragment_login_signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_button_margin"
         android:textSize="16sp"
         android:text="@string/login_signup"
         style="@style/SignUpButtonTheme" />
 
     <TextView
-        android:id="@+id/fragment_login_terms"
+        android:id="@+id/fragment_login_signup_terms"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_term_and_conds_text_view_margin"
         android:gravity="bottom|center_horizontal"
         android:textSize="16sp"
-        android:text="@string/login_terms_conditions"
+        android:text="@string/login_signup_terms_conditions"
         style="@style/EditTextTheme" />
 
 </LinearLayout>
