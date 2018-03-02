@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="1dp"
+    android:padding="@dimen/login_parent_padding"
     android:clipChildren="false">
 
     <android.support.constraint.ConstraintLayout
@@ -55,9 +55,9 @@
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/login_email_edit_text_marginTop"
+        android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
+        android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
         android:textSize="18sp"
         android:hint="@string/login_signup_email" />
@@ -67,8 +67,8 @@
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
+        android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
         android:textSize="18sp"
         android:hint="@string/login_signup_password" />
@@ -78,7 +78,7 @@
         style="@style/LogInButtonTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_button_margin"
         android:textSize="16sp"
         android:text="@string/login_login" />
 
@@ -86,7 +86,7 @@
         android:id="@+id/fragment_login_signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_button_margin"
         android:textSize="16sp"
         android:text="@string/login_signup"
         style="@style/SignUpButtonTheme" />
@@ -96,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/login_term_and_conds_text_view_margin"
         android:gravity="bottom|center_horizontal"
         android:textSize="16sp"
         android:text="@string/login_signup_terms_conditions"
