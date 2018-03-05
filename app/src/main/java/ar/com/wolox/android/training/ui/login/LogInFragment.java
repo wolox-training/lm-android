@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.training.ui.home.HomeActivity;
@@ -39,15 +40,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()) {
                     mEmailTxt.setError("Please insert a valid email address");
                 } else {
-                    //getPresenter().doLogin(mEmailTxt,mPasswordTxt);
-                    SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString(USER, mEmailTxt.getText().toString());
-                    editor.commit();
-                    Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
-                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(homeIntent);
+                    getPresenter().doLogin(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
                 }
             } else {
                 if (mEmailTxt.length() == 0)
@@ -55,6 +48,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                 if (mPasswordTxt.length() == 0)
                     mPasswordTxt.setError("Please complete with your password");
             }
+
     }
 
 
@@ -88,6 +82,19 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
     @Override
     public void onLoginFinished() {
+        Toast.makeText(getContext(), "OKKKKKKKKKKKKKKKKKKKKK", Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(USER, mEmailTxt.getText().toString());
+        editor.commit();
+        Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(homeIntent);
+    }
 
+    @Override
+    public void onLoginFailed(String error) {
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 }
