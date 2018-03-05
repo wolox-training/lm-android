@@ -31,12 +31,13 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         return fragment;
     }
 
+
     @OnClick(R.id.fragment_login_login_button)
         public void LogInValidate(){
         mEmailTxt.setError(null);
         mPasswordTxt.setError(null);
-            if (mEmailTxt.length() != 0 && mPasswordTxt.length() != 0) {
-                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()) {
+            if (requiredImputFieldsComplete(mEmailTxt)) {
+                if (!isValidMail(mEmailTxt)) {
                     mEmailTxt.setError("Please insert a valid email address");
                 } else {
                     //getPresenter().doLogin(mEmailTxt,mPasswordTxt);
@@ -57,6 +58,13 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
             }
     }
 
+    private boolean requiredImputFieldsComplete(EditText mEmailTxt) {
+        return mEmailTxt.length() != 0 && mPasswordTxt.length() != 0;
+    }
+
+    private boolean isValidMail(EditText mEmailTxt) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches();
+    }
 
 
     @OnClick(R.id.fragment_login_signup_button)

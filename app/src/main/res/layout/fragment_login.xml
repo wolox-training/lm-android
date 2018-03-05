@@ -59,7 +59,7 @@
         android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
         android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
-        android:textSize="18sp"
+        android:textSize="@dimen/login_edit_text_textSize"
         android:hint="@string/login_signup_email" />
 
     <EditText
@@ -70,7 +70,7 @@
         android:layout_marginLeft="@dimen/login_edit_text_marginLeft"
         android:layout_marginRight="@dimen/login_edit_text_marginRight"
         android:gravity="left"
-        android:textSize="18sp"
+        android:textSize="@dimen/login_edit_text_textSize"
         android:hint="@string/login_signup_password" />
 
     <Button
@@ -79,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/login_button_margin"
-        android:textSize="16sp"
+        android:textSize="@dimen/login_button_textSize"
         android:text="@string/login_login" />
 
     <Button
@@ -87,7 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/login_button_margin"
-        android:textSize="16sp"
+        android:textSize="@dimen/login_button_textSize"
         android:text="@string/login_signup"
         style="@style/SignUpButtonTheme" />
 
@@ -98,7 +98,7 @@
         android:layout_weight="1"
         android:layout_margin="@dimen/login_term_and_conds_text_view_margin"
         android:gravity="bottom|center_horizontal"
-        android:textSize="16sp"
+        android:textSize="@dimen/login_term_and_conds_text_view_textSize"
         android:text="@string/login_signup_terms_conditions"
         style="@style/EditTextTheme" />
 

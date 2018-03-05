@@ -27,8 +27,7 @@ public class RootActivity extends WolmoActivity {
         if (userKey.equals(DefaultUSER)) {
             // Call LogInActivity
             Intent logInIntent = new Intent(this, LogInActivity.class);
-            logInIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            logInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            logInIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(logInIntent);
         }else {
             // Call HomeActivity

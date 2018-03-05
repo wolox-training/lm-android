@@ -2,28 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    dimens="@dimens/"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="1dp"
+    android:padding="@dimen/signup_parent_padding"
     android:clipChildren="false">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/signup_title_height"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/signup_title_marginTop"
         android:clipChildren="false">
 
         <ImageView
-            android:layout_width="72dp"
+            android:layout_width="@dimen/signup_title_width"
             android:layout_height="wrap_content"
             android:src="@drawable/wolox_logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="@dimen/signup_title_textSize"
             android:text="@string/signup_signup"/>
     </LinearLayout>
 
@@ -32,11 +31,11 @@
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/signup_edit_text_marginTop"
+        android:layout_marginLeft="@dimen/signup_edit_text_marginLeftRight"
+        android:layout_marginRight="@dimen/signup_edit_text_marginLeftRight"
         android:gravity="left"
-        android:textSize="18sp"
+        android:textSize="@dimen/signup_edit_text_textSize"
         android:hint="@string/login_signup_email" />
 
     <EditText
@@ -44,11 +43,11 @@
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/signup_edit_text_marginTop"
+        android:layout_marginLeft="@dimen/signup_edit_text_marginLeftRight"
+        android:layout_marginRight="@dimen/signup_edit_text_marginLeftRight"
         android:gravity="left"
-        android:textSize="18sp"
+        android:textSize="@dimen/signup_edit_text_textSize"
         android:hint="@string/login_signup_password" />
 
     <EditText
@@ -56,19 +55,19 @@
         style="@style/EditTextTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="@dimen/signup_edit_text_marginTop"
+        android:layout_marginLeft="@dimen/signup_edit_text_marginLeftRight"
+        android:layout_marginRight="@dimen/signup_edit_text_marginLeftRight"
         android:gravity="left"
-        android:textSize="18sp"
+        android:textSize="@dimen/signup_edit_text_textSize"
         android:hint="@string/signup_confirm_password" />
 
     <TextView
         android:id="@+id/fragment_login_signup_terms"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/signup_text_view_height"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="16sp"
+        android:textSize="@dimen/signup_text_view_textSize"
         android:hint="@string/login_signup_terms_conditions"
         style="@style/EditTextTheme" />
 
@@ -76,8 +75,8 @@
         android:id="@+id/fragment_login_signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="16sp"
+        android:layout_margin="@dimen/signup_button_margin"
+        android:textSize="@dimen/signup_button_textSize"
         android:text="@string/signup_join"
         style="@style/SignUpButtonTheme" />
 
