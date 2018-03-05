@@ -2,7 +2,9 @@ package ar.com.wolox.android.training.ui.network.entities;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserResponse {
+import java.io.Serializable;
+
+public class UserResponse implements Serializable{
     @SerializedName("id") private Integer id;
     @SerializedName("username") private String username;
     @SerializedName("email") private String email;

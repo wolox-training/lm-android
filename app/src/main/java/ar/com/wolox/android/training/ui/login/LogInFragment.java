@@ -82,7 +82,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
     @Override
     public void onLoginFinished() {
-        Toast.makeText(getContext(), "OKKKKKKKKKKKKKKKKKKKKK", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Log in succesfully", Toast.LENGTH_SHORT).show();
         SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(USER, mEmailTxt.getText().toString());

@@ -31,17 +31,19 @@ public class LogInPresenter extends BasePresenter<LogInView> {
         service.reposForUser(mEmailTxt).enqueue(new Callback<List<UserResponse>>() {
             @Override
             public void onResponse(Call<List<UserResponse>> call, Response<List<UserResponse>> response) {
-                if (response.body().size()==0){
-                   String error = "No valid user name";
-                   getView().onLoginFailed(error);
-               // }else if() {
-               //     String error = ""}
-                //   getView().onLoginFinished();
+                if (!response.body().isEmpty()) {
+                    UserResponse userResponse = response.body().get(0);
+                    if (userResponse.getPassword().equals(mPassword)) {
+                        getView().onLoginFinished();
+                    } else {
+                        String error = "Password error";
+                        getView().onLoginFailed(error);
+                    }
+                } else {
+                    String error = "No valid user name";
+                    getView().onLoginFailed(error);
                 }
-                // Guardar datos del usuario, etc
-
             }
-
             @Override
             public void onFailure(Call<List<UserResponse>> call, Throwable t) {
                 String error="FAIL";
