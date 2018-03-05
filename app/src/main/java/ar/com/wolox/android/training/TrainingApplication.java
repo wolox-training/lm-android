@@ -9,7 +9,7 @@ public class TrainingApplication extends NetworkingApplication {
 
     @Override
     public RetrofitServices getRetrofitServices() {
-        return new LogInRetrofitServices();
+        return new TrainingRetrofitServices();
     }
 
     @Override

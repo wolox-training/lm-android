@@ -9,5 +9,4 @@ class BaseConfiguration {
     public void setError(CharSequence error, Drawable icon){
 
     }
-
 }
