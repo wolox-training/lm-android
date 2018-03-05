@@ -7,13 +7,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".example.BootstrapApplication"
+        android:name=".LogIn.TrainingApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".example.ui.ExampleActivity"
+            android:name=".LogIn.ui.login.LogInActivity"
             android:screenOrientation="portrait">
 
             <intent-filter>
