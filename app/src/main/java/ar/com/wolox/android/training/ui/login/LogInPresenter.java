@@ -22,11 +22,11 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     // Constructor
     public LogInPresenter(LogInView viewInstance) {
         super(viewInstance);
-        mRetrofitServices = ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices();
-        mRetrofitServices.init();
     }
 
     public void doLogin(String mEmailTxt, String mPassword) {
+        mRetrofitServices = ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices();
+        mRetrofitServices.init();
         LogInService service = mRetrofitServices.getService(LogInService.class);
         service.reposForUser(mEmailTxt).enqueue(new Callback<List<UserResponse>>() {
             @Override
@@ -51,8 +51,5 @@ public class LogInPresenter extends BasePresenter<LogInView> {
                 Log.e("LogInPresenter", t.getMessage(), t);
             }
         });
-        //getView().onLoginFinished();
-
     }
-
 }
