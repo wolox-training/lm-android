@@ -1,54 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="@dimen/login_parent_padding"
-    android:clipChildren="false">
+    android:padding="@dimen/login_parent_padding">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/fragment_login_picture"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clipChildren="false">
 
-        <ImageView
-            android:id="@+id/fragment_login_logo"
-            android:layout_width="0dp"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_login_picture"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/login_cover_grad_colour"
-            android:scaleType="centerCrop"
-            android:src="@drawable/login_cover"
-            android:alpha="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            style="@style/WoloxLogoImage"/>
+            android:layout_weight="1">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/login_cover_grad_colour"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            <ImageView
+                android:id="@+id/fragment_login_logo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/login_cover_grad_colour"
+                android:scaleType="centerCrop"
+                android:src="@drawable/login_cover"
+                android:alpha="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                style="@style/WoloxLogoImage"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/fragment_login_logo"
-            app:layout_constraintBottom_toBottomOf="@id/fragment_login_logo"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/wolox_logo_large" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/login_cover_grad_colour"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
-    </android.support.constraint.ConstraintLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_login_logo"
+                app:layout_constraintBottom_toBottomOf="@id/fragment_login_logo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/wolox_logo_large" />
+
+        </android.support.constraint.ConstraintLayout>
 
     <EditText
         android:id="@+id/fragment_login_email_edit_text"
@@ -103,3 +109,20 @@
         style="@style/EditTextTheme" />
 
 </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/fragment_login_progress_bar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+        </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

@@ -46,7 +46,7 @@ public class LogInPresenter extends BasePresenter<LogInView> {
             }
             @Override
             public void onFailure(Call<List<UserResponse>> call, Throwable t) {
-                String error="FAIL";
+                String error="Check your Internet connection";
                 getView().onLoginFailed(error);
                 Log.e("LogInPresenter", t.getMessage(), t);
             }

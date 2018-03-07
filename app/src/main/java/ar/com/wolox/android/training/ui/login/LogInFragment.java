@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
     @BindView(R.id.fragment_login_signup_terms) TextView mTermsTxt;
     @BindView(R.id.fragment_login_email_edit_text) EditText mEmailTxt;
     @BindView(R.id.fragment_login_password_edit_text) EditText mPasswordTxt;
+    @BindView(R.id.fragment_login_progress_bar) ProgressBar mProgressBar;
 
     // Fragments default constructors shouldn't be overridden, always prefer this method instead
     public static LogInFragment newInstance() {
@@ -42,6 +44,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                 if (!isValidMail(mEmailTxt)) {
                     mEmailTxt.setError("Please insert a valid email address");
                 } else {
+                    mProgressBar.setVisibility(View.VISIBLE);
                     getPresenter().doLogin(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
                 }
             } else {
@@ -95,6 +98,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(USER, mEmailTxt.getText().toString());
         editor.commit();
+        mProgressBar.setVisibility(View.GONE);
         Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(homeIntent);
@@ -102,6 +106,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
     @Override
     public void onLoginFailed(String error) {
+        mProgressBar.setVisibility(View.GONE);
         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 }

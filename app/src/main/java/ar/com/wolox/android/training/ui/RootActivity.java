@@ -4,6 +4,8 @@ package ar.com.wolox.android.training.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -11,11 +13,13 @@ import ar.com.wolox.android.R;
 import ar.com.wolox.android.training.TrainingApplication;
 import ar.com.wolox.android.training.ui.home.HomeActivity;
 import ar.com.wolox.android.training.ui.login.LogInActivity;
+import ar.com.wolox.android.training.ui.login.LogInFragment;
 import ar.com.wolox.android.training.ui.login.LogInView;
 import ar.com.wolox.android.training.ui.network.entities.UserResponse;
 import ar.com.wolox.android.training.ui.network.services.LogInService;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
+import butterknife.BindView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +49,7 @@ public class RootActivity extends WolmoActivity {
 
     @Override
     protected void init() {
+
         //Obtaining key-value
         SharedPreferences sharedPref = this.getSharedPreferences(USER, Context.MODE_PRIVATE);
         String userKey = sharedPref.getString(USER, DefaultUSER);
