@@ -27,51 +27,82 @@
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/home_news_tab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_news_list_off" />
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/home_news_icon_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_news_list_on"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/home_news_icon_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_news_list_off"
+                    android:visibility="visible"/>
+            </RelativeLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/home_news_text_view"
-                android:layout_gravity="center"
-                android:textSize="@dimen/home_text_view_textSize"
-                style="@style/HomeNewsProfileTextView"/>
-
+                    android:id="@+id/home_news_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/home_news_text_view"
+                    android:textSize="@dimen/home_text_view_textSize"
+                    style="@style/HomeNewsProfileTextView"/>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/home_profile_tab"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_profile_off" />
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/home_profile_icon_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_profile_on" />
+
+                <ImageView
+                    android:id="@+id/home_profile_icon_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_profile_off" />
+            </RelativeLayout>
 
             <TextView
+                android:id="@+id/home_profile_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/home_profile_text_view"
                 android:layout_gravity="center"
+                android:text="@string/home_profile_text_view"
                 android:textSize="@dimen/home_text_view_textSize"
-                style="@style/HomeNewsProfileTextView"/>
+                style="@style/HomeNewsProfileTextView" />
         </LinearLayout>
 
     </LinearLayout>
