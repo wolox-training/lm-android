@@ -9,4 +9,7 @@
     <string name="signup_confirm_password">Confirm Password</string>
     <string name="signup_join">Join</string>
     <string name="signup_signup"><b>Sign up</b></string>
+    <string name="home_wolox">Wolox</string>
+    <string name="home_news_text_view">News</string>
+    <string name="home_profile_text_view">Profile</string>
 </resources>

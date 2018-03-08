@@ -42,7 +42,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         mEmailTxt.setError(null);
         mPasswordTxt.setError(null);
             if (mEmailTxt.length() != 0 && mPasswordTxt.length() != 0) {
-                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches()) {
+                if (!isValidMail(mEmailTxt)) {
                     mEmailTxt.setError("Please insert a valid email address");
                 } else {
                     mProgressBar.setVisibility(View.VISIBLE);
@@ -54,6 +54,10 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                 if (mPasswordTxt.length() == 0)
                     mPasswordTxt.setError("Please complete with your password");
             }
+    }
+
+    public static boolean isValidMail(EditText mEmailTxt) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(mEmailTxt.getText()).matches();
     }
 
     @OnClick(R.id.fragment_login_signup_button)
