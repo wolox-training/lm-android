@@ -19,6 +19,7 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogInView {
 
     private static final String USER = "USER";
@@ -34,6 +35,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @OnClick(R.id.fragment_login_login_button)
         public void LogInValidate(){

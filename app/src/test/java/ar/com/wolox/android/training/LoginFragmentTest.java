@@ -1,8 +1,21 @@
 package ar.com.wolox.android.training;
 
-/**
- * Created by lucasmiotti on 08/03/18.
- */
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.mockito.Mockito.*;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import android.content.SharedPreferences;
 
-public class LoginFragmentTest {
+@RunWith(MockitoJUnitRunner.class) public class LoginFragmentTest {
+
+    @Mock String mMockString;
+
+    @Test public void LogInValidateTest(){
+        assertThat();
+    }
+
+
 }
