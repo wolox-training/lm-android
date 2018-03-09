@@ -10,6 +10,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,6 +28,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @BindView(R.id.home_tab_layout) TabLayout mTabLayout;
     @BindView(R.id.home_pager) ViewPager mPager;
+    @BindView(R.id.home_recycler_view) RecyclerView mRecyclerView;
 
 
     public static HomeFragment newInstance() {
@@ -78,6 +80,8 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         mTabLayout.addTab(ProfileTab, false);
         mTabLayout.setTabTextColors(Color.parseColor("#a5a8a9"), Color.parseColor("#8DC63F"));
         mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#8DC63F"));
+
+        mRecyclerView.setHasFixedSize(true);
 
     }
 
