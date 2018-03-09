@@ -52,22 +52,34 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         TabLayout.Tab ProfileTab = mTabLayout.newTab();
         ProfileTab.setText("Profile");
 
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab == NewsTab) {
+                    NewsTab.setIcon(R.drawable.ic_news_list_on);
+                    ProfileTab.setIcon(R.drawable.ic_profile_off);
+                }else {
+                    NewsTab.setIcon(R.drawable.ic_news_list_off);
+                    ProfileTab.setIcon(R.drawable.ic_profile_on);
+                }
             }
-            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-            }
-            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction){
-            }
-        };
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        
         mTabLayout.addTab(NewsTab, true);
         mTabLayout.addTab(ProfileTab, false);
         mTabLayout.setTabTextColors(Color.parseColor("#a5a8a9"), Color.parseColor("#8DC63F"));
         mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#8DC63F"));
 
     }
-
 
     @Override
     public HomePresenter createPresenter() {
