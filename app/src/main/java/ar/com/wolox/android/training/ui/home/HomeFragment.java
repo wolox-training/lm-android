@@ -1,28 +1,33 @@
 package ar.com.wolox.android.training.ui.home;
 
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
+import butterknife.OnItemSelected;
 
 public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeView {
 
-    @BindView(R.id.home_news_tab) LinearLayout mNewsll;
-    @BindView(R.id.home_profile_tab) LinearLayout mProfilell;
-    @BindView(R.id.home_news_icon_on) ImageView mNewsOnimg;
-    @BindView(R.id.home_news_icon_off) ImageView mNewsOffimg;
-    @BindView(R.id.home_profile_icon_on) ImageView mProfileOnimg;
-    @BindView(R.id.home_profile_icon_off) ImageView mProfileOffimg;
-    @BindView(R.id.home_news_text_view) TextView mNewstxt;
-    @BindView(R.id.home_profile_text_view) TextView mProfiletxt;
+    @BindView(R.id.home_tab_layout) TabLayout mTabLayout;
+    @BindView(R.id.home_pager) ViewPager mPager;
+
 
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();
@@ -31,35 +36,38 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         return fragment;
     }
 
-    @OnClick(R.id.home_news_tab)
-    public void newsSet(){
-        mNewsOnimg.setVisibility(View.VISIBLE);
-        mNewsOffimg.setVisibility(View.GONE);
-        mProfileOnimg.setVisibility(View.GONE);
-        mProfileOffimg.setVisibility(View.VISIBLE);
-        mNewstxt.setTextColor(0x8DD35F);
-        mProfiletxt.setTextColor(0x000000);
-    }
-
-    @OnClick(R.id.home_profile_tab)
-    public void profileSet(){
-        mNewsOnimg.setVisibility(View.GONE);
-        mNewsOffimg.setVisibility(View.VISIBLE);
-        mProfileOnimg.setVisibility(View.VISIBLE);
-        mProfileOffimg.setVisibility(View.GONE);
-        mNewstxt.setTextColor(0x000000);
-        mProfiletxt.setTextColor(0x8DD35F);
-    }
 
     @Override
-    public int layout() {
-        return R.layout.fragment_home;
-    }
+    public int layout() { return R.layout.fragment_home;}
 
     @Override
     public void setUi(View v) {
         super.setUi(v);
+
+        //News Tab
+        TabLayout.Tab NewsTab = mTabLayout.newTab();
+        NewsTab.setText("News");
+
+        //Profile Tab
+        TabLayout.Tab ProfileTab = mTabLayout.newTab();
+        ProfileTab.setText("Profile");
+
+        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+            }
+            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+            }
+            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction){
+            }
+        };
+
+        mTabLayout.addTab(NewsTab, true);
+        mTabLayout.addTab(ProfileTab, false);
+        mTabLayout.setTabTextColors(Color.parseColor("#a5a8a9"), Color.parseColor("#8DC63F"));
+        mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#8DC63F"));
+
     }
+
 
     @Override
     public HomePresenter createPresenter() {
