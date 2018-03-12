@@ -55,7 +55,7 @@ public class LogInPresenterTest {
         }).when(callMock).enqueue(any(Callback.class));
 
         // When
-        logInPresenter.doLogin("asdasdasdasd", "afrafea");
+        logInPresenter.doLogin("mockemail", "123456789");
 
         // Then
         Mockito.verify(mLoginViewMock).onLoginFailed(eq("Check your Internet connection"));
@@ -81,7 +81,7 @@ public class LogInPresenterTest {
         }).when(callMock).enqueue(any(Callback.class));
 
         // When
-        logInPresenter.doLogin("asdasdasdasd", "afrafea");
+        logInPresenter.doLogin("mockemail", "123456789");
 
         // Then
         Mockito.verify(mLoginViewMock).onLoginFailed(eq("No valid user name"));
@@ -113,7 +113,7 @@ public class LogInPresenterTest {
         }).when(callMock).enqueue(any(Callback.class));
 
         // When
-        logInPresenter.doLogin("mockuser", "afrafea");
+        logInPresenter.doLogin("mockemail", "asdasdasd");
 
         // Then
         Mockito.verify(mLoginViewMock).onLoginFailed(eq("Password error"));
@@ -127,7 +127,7 @@ public class LogInPresenterTest {
         Response<List<UserResponse>> responseMock = Mockito.mock(Response.class);
 
         UserResponse userMock = new UserResponse();
-        userMock.setEmail("mockuser");
+        userMock.setEmail("mockemail");
         userMock.setPassword("123456789");
         users.add(0,userMock);
 
@@ -146,7 +146,7 @@ public class LogInPresenterTest {
         }).when(callMock).enqueue(any(Callback.class));
 
         // When
-        logInPresenter.doLogin("mockuser", "123456789");
+        logInPresenter.doLogin("mockemail", "123456789");
 
         // Then
         Mockito.verify(mLoginViewMock).onLoginFinished();
