@@ -54,7 +54,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         TabLayout.Tab ProfileTab = mTabLayout.newTab();
         ProfileTab.setText("Profile");
 
-        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab == NewsTab) {

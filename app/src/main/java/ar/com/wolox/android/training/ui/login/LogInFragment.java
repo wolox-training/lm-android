@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.training.TrainingApplication;
 import ar.com.wolox.android.training.ui.home.HomeActivity;
 import ar.com.wolox.android.training.ui.signup.SignUpActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
@@ -80,7 +81,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
     @Override
     public LogInPresenter createPresenter() {
-        return new LogInPresenter(this);
+        return new LogInPresenter(this,((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices());
     }
 
     @Override
