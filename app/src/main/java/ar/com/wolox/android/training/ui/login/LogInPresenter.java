@@ -20,13 +20,14 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     private RetrofitServices mRetrofitServices;
 
     // Constructor
-    public LogInPresenter(LogInView viewInstance) {
+    public LogInPresenter(LogInView viewInstance, RetrofitServices retrofitServices) {
         super(viewInstance);
+        mRetrofitServices = retrofitServices;
+        mRetrofitServices.init();
     }
 
     public void doLogin(String mEmailTxt, String mPassword) {
-        mRetrofitServices = ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices();
-        mRetrofitServices.init();
+
         LogInService service = mRetrofitServices.getService(LogInService.class);
         service.reposForUser(mEmailTxt).enqueue(new Callback<List<UserResponse>>() {
             @Override
