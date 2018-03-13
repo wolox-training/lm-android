@@ -1,6 +1,8 @@
 package ar.com.wolox.android.training.ui.home;
 
 
+import android.support.design.widget.TabLayout;
+
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
