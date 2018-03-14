@@ -111,6 +111,7 @@ dependencies {
     // Third-party
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "com.jakewharton:butterknife:$butterknife_version"
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknife_version"
     debugImplementation "com.readystatesoftware.chuck:library:$chuck_version"
     releaseImplementation "com.readystatesoftware.chuck:library-no-op:$chuck_version"

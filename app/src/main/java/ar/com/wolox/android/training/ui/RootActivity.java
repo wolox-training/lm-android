@@ -31,9 +31,10 @@ public class RootActivity extends WolmoActivity {
         startActivity(logInIntent);
     }
 
-    public void serverResponseSuccess(){
+    public void serverResponseSuccess(Integer id){
         Intent homeIntent = new Intent(this, HomeActivity.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        homeIntent.putExtra("UserId", id);
         startActivity(homeIntent);
     }
 
@@ -59,7 +60,8 @@ public class RootActivity extends WolmoActivity {
             @Override
             public void onResponse(Call<List<UserResponse>> call, Response<List<UserResponse>> response) {
                 if (!response.body().isEmpty()) {
-                    serverResponseSuccess();
+                    UserResponse userResponse = response.body().get(0);
+                    serverResponseSuccess(userResponse.getId());
                 } else {
                     // Call LogInActivity
                     serverNoResponse();
