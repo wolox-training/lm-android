@@ -1,9 +1,13 @@
 <resources>
 
     <!-- General -->
-    <string name="example_title">ExampleFragment</string>
-    <string name="example_textview">Some example TextView</string>
-    <string name="example_randomize">Randomize</string>
-    <string name="example_wolox">WOLOX</string>
-    <string name="example_message">The presenter generated the number %1$d and this view is displaying it</string>
+    <string name="login_signup_email">E-mail</string>
+    <string name="login_signup_password">Password</string>
+    <string name="login_login">Log In</string>
+    <string name="login_signup">Sign Up</string>
+    <string name="login_signup_terms_conditions">By joining you agree to our <u><a href="http://www.wolox.com.ar">Terms &amp; Conditions</a></u></string>
+    <string name="signup_confirm_password">Confirm Password</string>
+    <string name="signup_join">Join</string>
+    <string name="signup_signup"><b>Sign up</b></string>
+    <string name="home_home">home</string>
 </resources>

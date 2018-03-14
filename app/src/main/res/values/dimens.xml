@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--fragment_login.xml dimens-->
+    <dimen name="login_parent_padding">1dp</dimen>
+    <dimen name="login_email_edit_text_marginTop">64dp</dimen>
+    <dimen name="login_edit_text_textSize">18sp</dimen>
+    <dimen name="login_edit_text_marginLeft">16dp</dimen>
+    <dimen name="login_edit_text_marginRight">16dp</dimen>
+    <dimen name="login_button_margin">8dp</dimen>
+    <dimen name="login_button_textSize">16sp</dimen>
+    <dimen name="login_term_and_conds_text_view_margin">8dp</dimen>
+    <dimen name="login_term_and_conds_text_view_textSize">8dp</dimen>
+
+    <!--fragment_login.xml dimens-->
+    <dimen name="signup_title_height">56dp</dimen>
+    <dimen name="signup_title_marginTop">16dp</dimen>
+    <dimen name="signup_title_width">72dp</dimen>
+    <dimen name="signup_title_textSize">20sp</dimen>
+    <dimen name="signup_parent_padding">1dp</dimen>
+    <dimen name="signup_edit_text_marginTop">8dp</dimen>
+    <dimen name="signup_edit_text_marginLeftRight">16dp</dimen>
+    <dimen name="signup_edit_text_textSize">18sp</dimen>
+    <dimen name="signup_text_view_height">48dp</dimen>
+    <dimen name="signup_text_view_textSize">16sp</dimen>
+    <dimen name="signup_button_margin">8dp</dimen>
+    <dimen name="signup_button_textSize">16sp</dimen>
+
+</resources>
