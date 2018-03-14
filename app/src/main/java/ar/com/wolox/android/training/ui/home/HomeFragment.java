@@ -41,7 +41,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         return fragment;
     }
 
-    public void tabInit(Integer mUserId){
+    public void tabInit(){
         //News Tab
         TabLayout.Tab NewsTab = mTabLayout.newTab();
         NewsTab.setText("News");
@@ -56,7 +56,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
                 if(tab == NewsTab) {
                     NewsTab.setIcon(R.drawable.ic_news_list_on);
                     ProfileTab.setIcon(R.drawable.ic_profile_off);
-                    getPresenter().bringNews(mUserId);
+                    getPresenter().bringNews();
                 }else {
                     NewsTab.setIcon(R.drawable.ic_news_list_off);
                     ProfileTab.setIcon(R.drawable.ic_profile_on);
@@ -97,10 +97,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @Override
     public void init() {
-        Intent HomeIntent = getActivity().getIntent();
-        Bundle bundle = HomeIntent.getExtras();
-        Integer mUserId = bundle.getInt("UserId");
-        tabInit(mUserId);
+        tabInit();
 
         mRecyclerView.setHasFixedSize(true);
         mNewsLayoutManager = new LinearLayoutManager(getActivity());

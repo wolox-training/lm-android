@@ -90,7 +90,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
 
     @Override
-    public void onLoginFinished(Integer id) {
+    public void onLoginFinished() {
         Toast.makeText(getContext(), "Log in succesfully", Toast.LENGTH_SHORT).show();
         SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -98,7 +98,6 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
         editor.commit();
         mProgressBar.setVisibility(View.GONE);
         Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
-        homeIntent.putExtra("UserId", id);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(homeIntent);
     }

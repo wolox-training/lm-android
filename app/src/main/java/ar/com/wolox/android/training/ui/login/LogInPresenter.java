@@ -35,7 +35,7 @@ public class LogInPresenter extends BasePresenter<LogInView> {
                 if (!response.body().isEmpty()) {
                     UserResponse userResponse = response.body().get(0);
                     if (userResponse.getPassword().equals(mPassword)) {
-                        getView().onLoginFinished(userResponse.getId());
+                        getView().onLoginFinished();
                     } else {
                         String error = "Password error";
                         getView().onLoginFailed(error);

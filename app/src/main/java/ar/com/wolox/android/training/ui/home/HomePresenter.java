@@ -24,29 +24,10 @@ public class HomePresenter extends BasePresenter<HomeView> {
     // Constructor
     public HomePresenter(HomeView viewInstance, RetrofitServices retrofitServices) {
         super(viewInstance);
-        mRetrofitServices = retrofitServices;
-        mRetrofitServices.init();
     }
 
-    public void bringNews(Integer mUserId){
-        HomeService service = mRetrofitServices.getService(HomeService.class);
-        service.reposForId(mUserId).enqueue(new Callback<List<NewsResponse>>() {
-            @Override
-            public void onResponse(Call<List<NewsResponse>> call, Response<List<NewsResponse>> response) {
-                if (!response.body().isEmpty()) {
-                    NewsResponse newsResponse = response.body().get(0);
-                        getView().bringNewsSuccess(newsResponse.getPicture(),newsResponse.getTitle(), newsResponse.getText(),newsResponse.getCreatedAt(),newsResponse.getLikes());
-                } else {
-                    String error = "No news available";
-                    getView().bringNewsFailed(error);
-                }
-            }
-            @Override
-            public void onFailure(Call<List<NewsResponse>> call, Throwable t) {
-                String error="Check your Internet connection";
-                getView().bringNewsFailed(error);
-                Log.e("LogInPresenter", t.getMessage(), t);
-            }
-        });
+    public void bringNews() {
+        NewsResponse newsResponse = null;
+        getView().bringNewsSuccess(newsResponse.getPicture(), newsResponse.getTitle(), newsResponse.getText(), newsResponse.getCreatedAt(), newsResponse.getLikes());
     }
 }
