@@ -9,7 +9,7 @@ import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
-public class LogInRetrofitServices extends RetrofitServices {
+public class TrainingRetrofitServices extends RetrofitServices {
 
     @NonNull
     @Override
