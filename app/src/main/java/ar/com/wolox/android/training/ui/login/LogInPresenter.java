@@ -1,6 +1,8 @@
 package ar.com.wolox.android.training.ui.login;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.List;
@@ -18,6 +20,8 @@ import retrofit2.Response;
 public class LogInPresenter extends BasePresenter<LogInView> {
 
     private RetrofitServices mRetrofitServices;
+    private SharedPreferences mSharedPreferences;
+    private static final String USER = "USER";
 
     // Constructor
     public LogInPresenter(LogInView viewInstance) {
@@ -27,6 +31,7 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     public void doLogin(String mEmailTxt, String mPassword) {
         mRetrofitServices = ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices();
         mRetrofitServices.init();
+        mSharedPreferences = ((TrainingApplication) TrainingApplication.getInstance()).getSharedPreferences(USER, Context.MODE_PRIVATE);
         LogInService service = mRetrofitServices.getService(LogInService.class);
         service.reposForUser(mEmailTxt).enqueue(new Callback<List<UserResponse>>() {
             @Override
@@ -34,6 +39,9 @@ public class LogInPresenter extends BasePresenter<LogInView> {
                 if (!response.body().isEmpty()) {
                     UserResponse userResponse = response.body().get(0);
                     if (userResponse.getPassword().equals(mPassword)) {
+                        SharedPreferences.Editor editor = mSharedPreferences.edit();
+                        editor.putString(USER, mEmailTxt);
+                        editor.commit();
                         getView().onLoginFinished();
                     } else {
                         String error = "Password error";
