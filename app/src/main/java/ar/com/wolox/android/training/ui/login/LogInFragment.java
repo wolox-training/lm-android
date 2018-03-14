@@ -45,7 +45,7 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
                     mEmailTxt.setError("Please insert a valid email address");
                 } else {
                     mProgressBar.setVisibility(View.VISIBLE);
-                    getPresenter().doLogin(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString());
+                    getPresenter().doLogin(mEmailTxt.getText().toString(),mPasswordTxt.getText().toString(),getContext());
                 }
             } else {
                 if (mEmailTxt.length() == 0)

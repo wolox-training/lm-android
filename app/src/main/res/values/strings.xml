@@ -10,4 +10,8 @@
     <string name="signup_join">Join</string>
     <string name="signup_signup"><b>Sign up</b></string>
     <string name="home_home">home</string>
+
+    <string name="password_error">Password Error</string>
+    <string name="no_valid_user_name">No Valid User Name</string>
+    <string name="check_internet_connection">Check your Internet connection</string>
 </resources>

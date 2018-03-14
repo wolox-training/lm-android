@@ -7,6 +7,7 @@ import android.util.Log;
 
 import java.util.List;
 
+import ar.com.wolox.android.R;
 import ar.com.wolox.android.training.TrainingApplication;
 import ar.com.wolox.android.training.ui.network.entities.UserResponse;
 import ar.com.wolox.android.training.ui.network.services.LogInService;
@@ -26,12 +27,12 @@ public class LogInPresenter extends BasePresenter<LogInView> {
     // Constructor
     public LogInPresenter(LogInView viewInstance) {
         super(viewInstance);
-    }
-
-    public void doLogin(String mEmailTxt, String mPassword) {
         mRetrofitServices = ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices();
         mRetrofitServices.init();
         mSharedPreferences = ((TrainingApplication) TrainingApplication.getInstance()).getSharedPreferences(USER, Context.MODE_PRIVATE);
+    }
+
+    public void doLogin(String mEmailTxt, String mPassword, Context context) {
         LogInService service = mRetrofitServices.getService(LogInService.class);
         service.reposForUser(mEmailTxt).enqueue(new Callback<List<UserResponse>>() {
             @Override
@@ -44,17 +45,17 @@ public class LogInPresenter extends BasePresenter<LogInView> {
                         editor.commit();
                         getView().onLoginFinished();
                     } else {
-                        String error = "Password error";
+                        String error = context.getString(R.string.password_error);
                         getView().onLoginFailed(error);
                     }
                 } else {
-                    String error = "No valid user name";
+                    String error = context.getString(R.string.no_valid_user_name);
                     getView().onLoginFailed(error);
                 }
             }
             @Override
             public void onFailure(Call<List<UserResponse>> call, Throwable t) {
-                String error="Check your Internet connection";
+                String error=context.getString(R.string.check_internet_connection);
                 getView().onLoginFailed(error);
                 Log.e("LogInPresenter", t.getMessage(), t);
             }
