@@ -30,7 +30,6 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
     @BindView(R.id.home_pager) ViewPager mPager;
     @BindView(R.id.home_recycler_view) RecyclerView mRecyclerView;
 
-
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();
         HomeFragment fragment = new HomeFragment();
@@ -38,9 +37,10 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         return fragment;
     }
 
-
     @Override
-    public int layout() { return R.layout.fragment_home;}
+    public int layout() {
+        return R.layout.fragment_home;
+    }
 
     @Override
     public void setUi(View v) {
@@ -72,7 +72,6 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
         
