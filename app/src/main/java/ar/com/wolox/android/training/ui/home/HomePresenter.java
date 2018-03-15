@@ -26,8 +26,8 @@ public class HomePresenter extends BasePresenter<HomeView> {
         super(viewInstance);
     }
 
-    public void bringNews() {
-        NewsResponse newsResponse = null;
-        getView().bringNewsSuccess(newsResponse.getPicture(), newsResponse.getTitle(), newsResponse.getText(), newsResponse.getCreatedAt(), newsResponse.getLikes());
-    }
+//    public void bringNews() {
+//        NewsResponse newsResponse = null;
+//        getView().bringNewsSuccess(newsResponse.getPicture(), newsResponse.getTitle(), newsResponse.getText(), newsResponse.getCreatedAt(), newsResponse.getLikes());
+//    }
 }

@@ -40,16 +40,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_recycler_view"
-        android:scrollbars="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1"/>-->
-
 </LinearLayout>
