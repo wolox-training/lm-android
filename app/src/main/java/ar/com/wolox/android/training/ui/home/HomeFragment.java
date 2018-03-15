@@ -77,8 +77,8 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         
         mTabLayout.addTab(NewsTab, true);
         mTabLayout.addTab(ProfileTab, false);
-        mTabLayout.setTabTextColors(Color.parseColor("#a5a8a9"), Color.parseColor("#8DC63F"));
-        mTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#8DC63F"));
+        mTabLayout.setTabTextColors(R.color.tab_color_unset, R.color.tab_color_set);
+        mTabLayout.setSelectedTabIndicatorColor(R.color.tab_color_set);
 
         mRecyclerView.setHasFixedSize(true);
 
