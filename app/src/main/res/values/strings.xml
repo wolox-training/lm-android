@@ -12,4 +12,7 @@
     <string name="home_wolox">Wolox</string>
     <string name="home_news_text_view">News</string>
     <string name="home_profile_text_view">Profile</string>
+
+    <string name="news_tab">News</string>
+    <string name="profile_tab">Profile</string>
 </resources>
