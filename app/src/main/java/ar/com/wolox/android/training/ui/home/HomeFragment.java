@@ -69,15 +69,6 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
             }
         });
 
-        mPager.addOnPageChangeListener(
-                new ViewPager.SimpleOnPageChangeListener(){
-                    @Override
-                    public void onPageSelected(int position){
-                        getActivity().getActionBar().setSelectedNavigationItem(position);
-                    }
-                }
-        );
-
         mTabLayout.addTab(NewsTab, true);
         mTabLayout.addTab(ProfileTab, false);
         mTabLayout.setTabTextColors(Color.parseColor("#a5a8a9"), Color.parseColor("#8DC63F"));
