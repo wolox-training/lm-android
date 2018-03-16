@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,18 +43,7 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         return R.layout.fragment_home;
     }
 
-    @Override
-    public void setUi(View v) {
-        super.setUi(v);
-
-        //News Tab
-        TabLayout.Tab NewsTab = mTabLayout.newTab();
-        NewsTab.setText(getString(R.string.news_tab));
-
-        //Profile Tab
-        TabLayout.Tab ProfileTab = mTabLayout.newTab();
-        ProfileTab.setText(getString(R.string.profile_tab));
-
+    public void setListeners(TabLayout.Tab NewsTab, TabLayout.Tab ProfileTab){
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -74,11 +64,26 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-        
+    }
+
+    @Override
+    public void setUi(View v) {
+        super.setUi(v);
+
+        //News Tab
+        TabLayout.Tab NewsTab = mTabLayout.newTab();
+        NewsTab.setText(getString(R.string.news_tab));
+
+        //Profile Tab
+        TabLayout.Tab ProfileTab = mTabLayout.newTab();
+        ProfileTab.setText(getString(R.string.profile_tab));
+
+        setListeners(NewsTab, ProfileTab);
+
         mTabLayout.addTab(NewsTab, true);
         mTabLayout.addTab(ProfileTab, false);
-        mTabLayout.setTabTextColors(R.color.tab_color_unset, R.color.tab_color_set);
-        mTabLayout.setSelectedTabIndicatorColor(R.color.tab_color_set);
+        mTabLayout.setTabTextColors(getResources().getColor(R.color.tab_color_unset), getResources().getColor(R.color.tab_color_set));
+        mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.tab_color_set));
 
         mRecyclerView.setHasFixedSize(true);
 
