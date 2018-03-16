@@ -93,7 +93,7 @@ public class LogInPresenterTest {
         UserResponse userMock = new UserResponse();
         userMock.setEmail("mockuser");
         userMock.setPassword("123456789");
-        users.add(0,userMock);
+        users.add(userMock);
 
 
         Mockito.when(responseMock.body()).thenReturn(users);
