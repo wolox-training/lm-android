@@ -125,4 +125,6 @@ dependencies {
     testImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
     testImplementation "org.mockito:mockito-inline:2.7.13"
     testImplementation 'org.assertj:assertj-core:2.9.0'
+    implementation 'com.facebook.fresco:fresco:0.6.1'
+    implementation 'com.github.bumptech.glide:glide:4.1.1'
 }

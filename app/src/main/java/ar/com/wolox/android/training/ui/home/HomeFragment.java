@@ -5,8 +5,14 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import org.joda.time.DateTime;
+
+import java.lang.reflect.Array;
 
 import ar.com.wolox.android.training.ui.network.entities.HomePagerAdapter;
 
@@ -19,10 +25,6 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @BindView(R.id.home_tab_layout) TabLayout mTabLayout;
     @BindView(R.id.home_pager) ViewPager mPager;
-
-    //private RecyclerView mRecyclerView;
-//    private RecyclerView.Adapter mNewsAdapter;
-//    private RecyclerView.LayoutManager mNewsLayoutManager;
 
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();
@@ -85,28 +87,12 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @Override
     public HomePresenter createPresenter() {
-        return new HomePresenter(this, ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices());
+        return new HomePresenter(this);
     }
 
     @Override
     public void init() {
         tabInit();
-
-//        mRecyclerView.setHasFixedSize(true);
-//        mNewsLayoutManager = new LinearLayoutManager(getActivity());
-//        mRecyclerView.setLayoutManager(mNewsLayoutManager);
-    }
-
-//
-//    @Override
-//    public void bringNewsSuccess(String NewsPicture, String NewsTitle, String NewsText, DateTime NewsTime, Array NewsLikes) {
-//        mNewsAdapter = new NewsAdapter(NewsPicture, NewsTitle, NewsText, NewsTime, NewsLikes);
-//        mRecyclerView.setAdapter(mNewsAdapter);
-//    }
-
-    @Override
-    public void bringNewsFailed(String error) {
-        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 }
 

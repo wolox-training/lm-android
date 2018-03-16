@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface HomeService {
 
-        @GET("/users/")
-        Call<List<NewsResponse>> reposForId(@Query("userId") Integer userId);
+        @GET("/news")
+        Call<List<NewsResponse>> repoNews();
 }
 

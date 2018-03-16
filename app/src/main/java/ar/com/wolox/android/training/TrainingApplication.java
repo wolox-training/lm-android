@@ -1,5 +1,6 @@
 package ar.com.wolox.android.training;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.leakcanary.LeakCanary;
 
 import ar.com.wolox.wolmo.networking.retrofit.NetworkingApplication;
@@ -14,6 +15,7 @@ public class TrainingApplication extends NetworkingApplication {
 
     @Override
     public void onInit() {
+        Fresco.initialize(this);
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.

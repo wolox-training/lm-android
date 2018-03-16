@@ -9,9 +9,6 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
 public class ProfileFragment extends WolmoFragment<HomePresenter> implements HomeView {
     @Override
-    public void bringNewsFailed(String error) { }
-
-    @Override
     public int layout() {
         return R.layout.fragment_home_profile;
     }

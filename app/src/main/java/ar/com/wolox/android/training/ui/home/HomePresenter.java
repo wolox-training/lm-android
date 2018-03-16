@@ -1,6 +1,5 @@
 package ar.com.wolox.android.training.ui.home;
 
-
 import android.util.Log;
 
 import java.util.List;
@@ -19,15 +18,8 @@ import retrofit2.Response;
 
 public class HomePresenter extends BasePresenter<HomeView> {
 
-    private RetrofitServices mRetrofitServices;
-
     // Constructor
-    public HomePresenter(HomeView viewInstance, RetrofitServices retrofitServices) {
+    public HomePresenter(HomeView viewInstance) {
         super(viewInstance);
     }
-
-//    public void bringNews() {
-//        NewsResponse newsResponse = null;
-//        getView().bringNewsSuccess(newsResponse.getPicture(), newsResponse.getTitle(), newsResponse.getText(), newsResponse.getCreatedAt(), newsResponse.getLikes());
-//    }
 }

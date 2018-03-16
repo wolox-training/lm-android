@@ -1,19 +1,38 @@
 package ar.com.wolox.android.training.ui.home;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
+
+import org.joda.time.DateTime;
+
+import java.lang.reflect.Array;
+import java.util.List;
+
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.training.TrainingApplication;
 import ar.com.wolox.android.training.ui.home.HomePresenter;
 import ar.com.wolox.android.training.ui.home.HomeView;
+import ar.com.wolox.android.training.ui.network.entities.NewsResponse;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
+import butterknife.BindView;
 
-public class NewsFragment extends WolmoFragment<HomePresenter> implements HomeView {
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-//        return inflater.inflate(R.layout.fragment_home_recycler,container,false);
-//    }
+public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsView {
+
+    @BindView(R.id.home_recycler_view) RecyclerView mRecyclerView;
+
+    private RecyclerView.Adapter mNewsAdapter;
+    private RecyclerView.LayoutManager mNewsLayoutManager;
+
+    @Override
+    public void bringNewsSuccess(List<NewsResponse> newsResponse) {
+        mNewsAdapter = new NewsAdapter(newsResponse);
+        mRecyclerView.setAdapter(mNewsAdapter);
+    }
 
     @Override
     public void bringNewsFailed(String error) {
-
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -22,13 +41,18 @@ public class NewsFragment extends WolmoFragment<HomePresenter> implements HomeVi
     }
 
     @Override
-    public HomePresenter createPresenter() {
-        return null;
+    public NewsPresenter createPresenter() {
+        return new NewsPresenter(this, ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices());
     }
 
     @Override
     public void init() {
+        mRecyclerView.setHasFixedSize(true);
 
+        mNewsLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mNewsLayoutManager);
+
+        getPresenter().bringNews();
     }
 }
 
