@@ -19,7 +19,9 @@ public class LogInPresenter extends BasePresenter<LogInView> {
 
     private RetrofitServices mRetrofitServices;
 
-    // Constructor
+    /*
+    * Constructor. Initializing retrofitServices to communicate with server
+     */
     public LogInPresenter(LogInView viewInstance, RetrofitServices retrofitServices) {
         super(viewInstance);
         mRetrofitServices = retrofitServices;

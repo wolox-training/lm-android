@@ -110,7 +110,7 @@ public class LogInPresenterTest {
         }).when(callMock).enqueue(any(Callback.class));
 
         // When
-        logInPresenter.doLogin("mockemail", "asdasdasd");
+        logInPresenter.doLogin("mockemail", "fakepassword");
 
         // Then
         Mockito.verify(mLoginViewMock).onLoginFailed(eq("Password error"));
