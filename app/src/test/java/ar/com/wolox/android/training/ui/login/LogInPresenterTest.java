@@ -1,7 +1,8 @@
 package ar.com.wolox.android.training.ui.login;
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+//import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Matchers.eq;
 
 import org.junit.Before;
 import org.junit.Test;
