@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.AppBarLayout;
@@ -47,13 +48,13 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab == NewsTab) {
-                    NewsTab.setIcon(R.drawable.ic_news_list_on);
-                    ProfileTab.setIcon(R.drawable.ic_profile_off);
-                }else {
-                    NewsTab.setIcon(R.drawable.ic_news_list_off);
-                    ProfileTab.setIcon(R.drawable.ic_profile_on);
-                }
+//                if(tab == NewsTab) {
+//                    NewsTab.setIcon(R.drawable.ic_news_list_on);
+//                    ProfileTab.setIcon(R.drawable.ic_profile_off);
+//                }else {
+//                    NewsTab.setIcon(R.drawable.ic_news_list_off);
+//                    ProfileTab.setIcon(R.drawable.ic_profile_on);
+//                }
             }
 
             @Override
@@ -82,6 +83,8 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
         mTabLayout.addTab(NewsTab, true);
         mTabLayout.addTab(ProfileTab, false);
+        NewsTab.setIcon(R.drawable.home_news_selector);
+        ProfileTab.setIcon(R.drawable.home_profile_selector);
         mTabLayout.setTabTextColors(getResources().getColor(R.color.tab_color_unset), getResources().getColor(R.color.tab_color_set));
         mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.tab_color_set));
 
