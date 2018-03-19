@@ -77,8 +77,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.mNewsTitletxt.setText(news.getTitle());
         holder.mNewsTexttxt.setText(news.getText());
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ssssssZ");
-        String myDate = dateFormat.format(news.getCreatedAt());
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ssssssZ");
+//        String myDate = dateFormat.format(news.getCreatedAt());
 //        String[] parts = news.getCreatedAt().split("-");
 //        String year = parts[0];
 //        String month = parts[1];

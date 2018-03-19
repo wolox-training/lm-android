@@ -22,7 +22,7 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
 
     @BindView(R.id.home_recycler_view) RecyclerView mRecyclerView;
     @BindView(R.id.home_news_swipe) SwipeRefreshLayout mSwipeRefreshLayout;
-
+    Integer showNews = 1;
     private RecyclerView.Adapter mNewsAdapter;
     private RecyclerView.LayoutManager mNewsLayoutManager;
 
@@ -55,32 +55,16 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
 
         mNewsLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mNewsLayoutManager);
-        int newsNumber = 1;
-        getPresenter().bringNews();
-
+        getPresenter().bringNews(showNews);
+        showNews++;
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getPresenter().bringNews();
-                refreshItems();
+                getPresenter().bringNews(showNews);
+                showNews++;
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
-    }
-
-    void refreshItems() {
-        // Load items
-        // ...
-
-        // Load complete
-        onItemsLoadComplete();
-    }
-
-    void onItemsLoadComplete() {
-        // Update the adapter and notify data set changed
-        // ...
-
-        // Stop refresh animation
-        mSwipeRefreshLayout.setRefreshing(false);
     }
 }
 
