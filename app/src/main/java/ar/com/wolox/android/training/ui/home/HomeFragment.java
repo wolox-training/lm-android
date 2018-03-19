@@ -48,13 +48,6 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-//                if(tab == NewsTab) {
-//                    NewsTab.setIcon(R.drawable.ic_news_list_on);
-//                    ProfileTab.setIcon(R.drawable.ic_profile_off);
-//                }else {
-//                    NewsTab.setIcon(R.drawable.ic_news_list_off);
-//                    ProfileTab.setIcon(R.drawable.ic_profile_on);
-//                }
             }
 
             @Override
