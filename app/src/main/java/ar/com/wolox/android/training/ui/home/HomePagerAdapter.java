@@ -1,4 +1,4 @@
-package ar.com.wolox.android.training.ui.network.entities;
+package ar.com.wolox.android.training.ui.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

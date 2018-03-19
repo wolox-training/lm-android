@@ -3,21 +3,10 @@ package ar.com.wolox.android.training.ui.home;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
-
-import org.joda.time.DateTime;
-
-import java.lang.reflect.Array;
-
-import ar.com.wolox.android.training.ui.network.entities.HomePagerAdapter;
 
 import ar.com.wolox.android.R;
-import ar.com.wolox.android.training.TrainingApplication;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 
