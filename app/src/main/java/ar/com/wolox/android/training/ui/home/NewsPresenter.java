@@ -2,6 +2,8 @@ package ar.com.wolox.android.training.ui.home;
 
 import android.util.Log;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,8 +32,19 @@ public class NewsPresenter extends BasePresenter<NewsView> {
         service.repoNews().enqueue(new Callback<List<NewsResponse>>() {
             @Override
             public void onResponse(Call<List<NewsResponse>> call, Response<List<NewsResponse>> response) {
-                getView().bringNewsSuccess(response.body());
+                List<NewsResponse> responseBody = new LinkedList<>();
+                responseBody = response.body();
+                Collections.sort(responseBody, new Comparator<NewsResponse>(){
+                    public int compare(NewsResponse obj1, NewsResponse obj2)
+                    {
+                        return obj1.getCreatedAt().compareToIgnoreCase(obj2.getCreatedAt());
+                    }
+                });
+
+
+                getView().bringNewsSuccess(responseBody);
             }
+
             @Override
             public void onFailure(Call<List<NewsResponse>> call, Throwable t) {
                 String error="Check your Internet connection";
