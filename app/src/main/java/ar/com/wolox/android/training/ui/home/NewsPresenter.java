@@ -40,8 +40,6 @@ public class NewsPresenter extends BasePresenter<NewsView> {
                         return obj1.getCreatedAt().compareToIgnoreCase(obj2.getCreatedAt());
                     }
                 });
-
-
                 getView().bringNewsSuccess(responseBody);
             }
 

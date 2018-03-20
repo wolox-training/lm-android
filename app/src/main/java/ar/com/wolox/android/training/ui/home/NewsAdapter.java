@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,23 +78,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.mNewsTitletxt.setText(news.getTitle());
         holder.mNewsTexttxt.setText(news.getText());
 
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ssssssZ");
-//        String myDate = dateFormat.format(news.getCreatedAt());
-//        String[] parts = news.getCreatedAt().split("-");
-//        String year = parts[0];
-//        String month = parts[1];
-//        String rest = parts[2];
-//        parts = rest.split("T");
-//        String day = parts[0];
-//        rest = parts[1];
-//        parts = rest.split(":");
-//        String hour = parts[0];
-//        String min = parts[1];
-//        rest = parts[2];
-//        parts = rest.split("Z");
-//        String seg = parts[0];
-        //PrettyTime p = new PrettyTime();
-        //holder.mNewsTimetxt.setText(p.format(mTime) + p.format(new Date(System.currentTimeMillis())));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssssss'Z'");
+        try {
+            Date date = dateFormat.parse(news.getCreatedAt());
+            PrettyTime p = new PrettyTime();
+            holder.mNewsTimetxt.setText(p.format(date) + p.format(new Date(System.currentTimeMillis())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         holder.mNewsLikeImg.setImageResource(R.drawable.ic_like_off);
     }
 
