@@ -68,7 +68,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.mNewsTexttxt.setText(news.getText());
         PrettyTime p = new PrettyTime();
         String auxDate = p.format(news.getCreatedAt().toDate());
-        auxDate = auxDate.replace("years ago","y");
+        auxDate = auxDate.replace("ago","");
+        auxDate = auxDate.replace("minutes","m");
+        auxDate = auxDate.replace("seconds","s");
+        auxDate = auxDate.replace("years","y");
         holder.mNewsTimetxt.setText(auxDate);
         boolean on_off = false;
         for (int i = 0; i < news.getLikes().size(); i++) {
