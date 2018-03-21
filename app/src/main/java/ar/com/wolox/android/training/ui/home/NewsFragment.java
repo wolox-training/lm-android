@@ -1,5 +1,7 @@
 package ar.com.wolox.android.training.ui.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,18 +24,28 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
 
     @BindView(R.id.home_recycler_view) RecyclerView mRecyclerView;
     @BindView(R.id.home_news_swipe) SwipeRefreshLayout mSwipeRefreshLayout;
-    Integer showNews = 1;
+
     private RecyclerView.Adapter mNewsAdapter;
     private RecyclerView.LayoutManager mNewsLayoutManager;
+    private static final String ID = "ID";
+    private static final int DefaultID = 0;
 
     @Override
     public void bringNewsSuccess(List<NewsResponse> newsResponse) {
-        mNewsAdapter = new NewsAdapter(newsResponse);
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(ID, Context.MODE_PRIVATE);
+        int id = sharedPref.getInt(ID, DefaultID);
+
+        mNewsAdapter = new NewsAdapter(newsResponse,id);
         mRecyclerView.setAdapter(mNewsAdapter);
     }
 
     @Override
     public void bringNewsFailed(String error) {
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void noNews(String error){
         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 
@@ -55,13 +67,11 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
 
         mNewsLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mNewsLayoutManager);
-        getPresenter().bringNews(showNews);
-        showNews++;
+        getPresenter().bringNews();
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getPresenter().bringNews(showNews);
-                showNews++;
+                getPresenter().bringNews();
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });

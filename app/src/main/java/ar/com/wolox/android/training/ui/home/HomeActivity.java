@@ -39,16 +39,6 @@ public class HomeActivity extends WolmoActivity {
     @Override
     protected void init() {
         replaceFragment(R.id.activity_base_content, HomeFragment.newInstance());
-
-//        //mRecyclerView = findViewById(R.id.home_recycler_view);
-//        mRecyclerView.setHasFixedSize(true);
-//
-//        mNewsLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mNewsLayoutManager);
-//
-//        mNewsAdapter = new NewsAdapter(NewsPicture, NewsTitle, NewsText, NewsTime, NewsLikes);
-//        mRecyclerView.setAdapter(mNewsAdapter);
-
     }
 
 

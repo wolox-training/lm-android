@@ -22,6 +22,7 @@ import retrofit2.Response;
 public class RootActivity extends WolmoActivity {
 
     private static final String USER = "USER";
+    private static final String ID = "ID";
     private static final String DefaultUSER = "DefaultUser";
     private RetrofitServices mRetrofitServices;
 
@@ -59,6 +60,10 @@ public class RootActivity extends WolmoActivity {
             @Override
             public void onResponse(Call<List<UserResponse>> call, Response<List<UserResponse>> response) {
                 if (!response.body().isEmpty()) {
+                    SharedPreferences sharedPref = getSharedPreferences(ID, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putInt(ID, response.body().get(0).getId());
+                    editor.commit();
                     serverResponseSuccess();
                 } else {
                     // Call LogInActivity

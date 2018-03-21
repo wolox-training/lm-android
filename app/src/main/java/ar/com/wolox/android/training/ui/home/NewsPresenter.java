@@ -26,21 +26,26 @@ public class NewsPresenter extends BasePresenter<NewsView> {
         mRetrofitServices.init();
     }
 
-    public void bringNews(int shownews) {
+    public void bringNews() {
         //List<NewsResponse> newsResponse = new LinkedList<>();
+
         HomeService service = mRetrofitServices.getService(HomeService.class);
         service.repoNews().enqueue(new Callback<List<NewsResponse>>() {
             @Override
             public void onResponse(Call<List<NewsResponse>> call, Response<List<NewsResponse>> response) {
                 List<NewsResponse> responseBody = new LinkedList<>();
                 responseBody = response.body();
-                Collections.sort(responseBody, new Comparator<NewsResponse>(){
-                    public int compare(NewsResponse obj1, NewsResponse obj2)
-                    {
-                        return obj1.getCreatedAt().compareToIgnoreCase(obj2.getCreatedAt());
-                    }
-                });
-                getView().bringNewsSuccess(responseBody);
+                if (!responseBody.isEmpty()) {
+                    Collections.sort(responseBody, new Comparator<NewsResponse>() {
+                        public int compare(NewsResponse obj1, NewsResponse obj2) {
+                            return obj1.getCreatedAt().compareTo(obj2.getCreatedAt());
+                        }
+                    });
+                    getView().bringNewsSuccess(responseBody);
+                }else{
+                    String error = "No news added";
+                    getView().noNews(error);
+                }
             }
 
             @Override

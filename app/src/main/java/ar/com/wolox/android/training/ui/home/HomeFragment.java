@@ -6,7 +6,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.training.ui.network.entities.IdEvent;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 import butterknife.BindView;
 
@@ -81,8 +85,20 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @Override
     public void init() {
+//        Bundle bundle = getActivity().getIntent().getExtras();
+//        int id = bundle.getInt("id");
+//        EventBus.getDefault().register(this);
+//        EventBus.getDefault().post(new IdEvent(id));
         tabInit();
     }
+
+    @Override
+    public void onDestroy(){
+        super .onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
 }
 
 

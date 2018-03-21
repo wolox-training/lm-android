@@ -1,6 +1,8 @@
 package ar.com.wolox.android.training.ui.login;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import retrofit2.Response;
 public class LogInPresenter extends BasePresenter<LogInView> {
 
     private RetrofitServices mRetrofitServices;
+    private static final String ID = "ID";
 
     // Constructor
     public LogInPresenter(LogInView viewInstance, RetrofitServices retrofitServices) {
@@ -35,7 +38,8 @@ public class LogInPresenter extends BasePresenter<LogInView> {
                 if (!response.body().isEmpty()) {
                     UserResponse userResponse = response.body().get(0);
                     if (userResponse.getPassword().equals(mPassword)) {
-                        getView().onLoginFinished();
+
+                        getView().onLoginFinished(response.body().get(0).getId());
                     } else {
                         String error = "Password error";
                         getView().onLoginFailed(error);

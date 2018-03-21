@@ -11,7 +11,7 @@ import java.util.List;
 public class NewsResponse implements Serializable{
     @SerializedName("id") private Integer id;
     @SerializedName("userId") private Integer userId;
-    @SerializedName("createdAt") private String createdAt;
+    @SerializedName("createdAt") private DateTime createdAt;
     @SerializedName("title") private String title;
     @SerializedName("text") private String text;
     @SerializedName("likes") private List<Integer> likes;
@@ -20,7 +20,7 @@ public class NewsResponse implements Serializable{
     public NewsResponse() {
     }
 
-    public NewsResponse(Integer id, Integer userId, String createdAt, String title, String text, List<Integer> likes, String picture) {
+    public NewsResponse(Integer id, Integer userId, DateTime createdAt, String title, String text, List<Integer> likes, String picture) {
         this.id = id;
         this.userId = userId;
         this.createdAt = createdAt;
@@ -46,11 +46,11 @@ public class NewsResponse implements Serializable{
         this.userId = userId;
     }
 
-    public String getCreatedAt() {
+    public DateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(DateTime createdAt) {
         this.createdAt = createdAt;
     }
 

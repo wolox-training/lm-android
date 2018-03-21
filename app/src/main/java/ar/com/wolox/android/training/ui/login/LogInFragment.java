@@ -24,6 +24,8 @@ import butterknife.OnClick;
 public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogInView {
 
     private static final String USER = "USER";
+    private static final String ID = "ID";
+
     @BindView(R.id.fragment_login_signup_terms) TextView mTermsTxt;
     @BindView(R.id.fragment_login_email_edit_text) EditText mEmailTxt;
     @BindView(R.id.fragment_login_password_edit_text) EditText mPasswordTxt;
@@ -90,12 +92,18 @@ public class LogInFragment extends WolmoFragment<LogInPresenter> implements LogI
 
 
     @Override
-    public void onLoginFinished() {
+    public void onLoginFinished(int userId) {
         Toast.makeText(getContext(), "Log in succesfully", Toast.LENGTH_SHORT).show();
         SharedPreferences sharedPref = getActivity().getSharedPreferences(USER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(USER, mEmailTxt.getText().toString());
         editor.commit();
+
+        SharedPreferences sharedPrefId = getActivity().getSharedPreferences(ID, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editorId = sharedPrefId.edit();
+        editorId.putInt(ID, userId);
+        editorId.commit();
+
         mProgressBar.setVisibility(View.GONE);
         Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
         homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -2,8 +2,13 @@ package ar.com.wolox.android.training;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.readystatesoftware.chuck.ChuckInterceptor;
 
+import org.joda.time.DateTime;
+
+import ar.com.wolox.android.training.ui.network.Serializer.DateTimeDeserializer;
 import ar.com.wolox.wolmo.networking.BuildConfig;
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
 import okhttp3.OkHttpClient;
@@ -33,5 +38,8 @@ public class TrainingRetrofitServices extends RetrofitServices {
         }
     }
 
-
+    @Override
+    protected void initGson(@NonNull GsonBuilder builder) {
+        builder.registerTypeAdapter(DateTime.class, new DateTimeDeserializer());
+    }
 }
