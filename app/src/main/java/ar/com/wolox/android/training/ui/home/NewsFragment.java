@@ -2,9 +2,11 @@ package ar.com.wolox.android.training.ui.home;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import org.joda.time.DateTime;
@@ -58,7 +60,6 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
     public NewsPresenter createPresenter() {
         return new NewsPresenter(this, ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices());
     }
-
 
 
     @Override

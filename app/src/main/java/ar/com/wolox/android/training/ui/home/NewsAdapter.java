@@ -3,6 +3,7 @@ package ar.com.wolox.android.training.ui.home;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import static android.renderscript.Element.DataKind.USER;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     List<NewsResponse> newsList = new ArrayList<>();
+    CustomClassListener listener;
     int userId;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +57,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_home_news, parent, false);
         ViewHolder vh = new ViewHolder(v);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(v,vh.getAdapterPosition());
+            }
+        });
         return vh;
+    }
+
+    public Fragment onItemClick(View v, int position){
+        Fragment detailFragment = new DetailsFragment();
+        return detailFragment;
     }
 
 
@@ -84,7 +97,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             } else {
             holder.mNewsLikeImg.setImageResource(R.drawable.ic_like_off);
         }
-        //EventBus.getDefault().unregister(this);
     }
 
     @Override
