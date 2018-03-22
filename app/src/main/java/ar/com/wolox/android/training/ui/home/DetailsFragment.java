@@ -9,12 +9,12 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class DetailsFragment extends WolmoFragment<DetailsPresenter> {
-    @BindView(R.id.news_like_logo) ImageView mDetailPicImg;
-
-    @OnClick(R.id.news_like_logo)
-    public void setLike(){
-        mDetailPicImg.setImageResource(R.drawable.ic_like_on);
-    }
+//    @BindView(R.id.news_like_logo) ImageView mDetailPicImg;
+//
+//    @OnClick(R.id.news_like_logo)
+//    public void setLike(){
+//        mDetailPicImg.setImageResource(R.drawable.ic_like_on);
+//    }
 
     @Override
     public int layout() {
@@ -29,6 +29,5 @@ public class DetailsFragment extends WolmoFragment<DetailsPresenter> {
     @Override
     public void init() {
     }
-
 
 }

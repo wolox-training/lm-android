@@ -3,6 +3,8 @@ package ar.com.wolox.android.training.ui.home;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -83,28 +85,26 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
             @Override
             public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
                 View ChildView = rv.findChildViewUnder(e.getX(),e.getY());
-
                 if(ChildView != null && gestureDetector.onTouchEvent(e)) {
-
-                    int RecyclerViewItemPosition = rv.getChildAdapterPosition(ChildView);
-
-                    Toast.makeText(getActivity(), Integer.toString(RecyclerViewItemPosition), Toast.LENGTH_LONG).show();
+                    Fragment detailFragment = new DetailsFragment();
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_home, detailFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+//                    int RecyclerViewItemPosition = rv.getChildAdapterPosition(ChildView);
+//                    Toast.makeText(getActivity(), Integer.toString(RecyclerViewItemPosition), Toast.LENGTH_LONG).show();
                 }
-
                 return false;
             }
 
             @Override
             public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
             }
 
             @Override
             public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
             }
         });
-
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
