@@ -85,20 +85,8 @@ public class HomeFragment extends WolmoFragment<HomePresenter> implements HomeVi
 
     @Override
     public void init() {
-//        Bundle bundle = getActivity().getIntent().getExtras();
-//        int id = bundle.getInt("id");
-//        EventBus.getDefault().register(this);
-//        EventBus.getDefault().post(new IdEvent(id));
         tabInit();
     }
-
-    @Override
-    public void onDestroy(){
-        super .onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-
 }
 
 

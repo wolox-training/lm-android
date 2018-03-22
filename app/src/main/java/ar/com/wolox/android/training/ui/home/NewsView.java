@@ -1,5 +1,8 @@
 package ar.com.wolox.android.training.ui.home;
 
+import android.support.v4.app.Fragment;
+import android.view.View;
+
 import org.joda.time.DateTime;
 
 import java.lang.reflect.Array;

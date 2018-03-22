@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -61,14 +63,49 @@ public class NewsFragment extends WolmoFragment<NewsPresenter> implements NewsVi
         return new NewsPresenter(this, ((TrainingApplication) TrainingApplication.getInstance()).getRetrofitServices());
     }
 
-
     @Override
     public void init() {
-        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
         mNewsLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mNewsLayoutManager);
         getPresenter().bringNews();
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            GestureDetector gestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
+
+                @Override public boolean onSingleTapUp(MotionEvent motionEvent) {
+
+                    return true;
+                }
+
+            });
+
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                View ChildView = rv.findChildViewUnder(e.getX(),e.getY());
+
+                if(ChildView != null && gestureDetector.onTouchEvent(e)) {
+
+                    int RecyclerViewItemPosition = rv.getChildAdapterPosition(ChildView);
+
+                    Toast.makeText(getActivity(), Integer.toString(RecyclerViewItemPosition), Toast.LENGTH_LONG).show();
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+
+
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

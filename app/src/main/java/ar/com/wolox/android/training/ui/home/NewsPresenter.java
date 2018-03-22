@@ -1,6 +1,7 @@
 package ar.com.wolox.android.training.ui.home;
 
 import android.util.Log;
+import android.view.View;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -55,6 +56,7 @@ public class NewsPresenter extends BasePresenter<NewsView> {
                 Log.e("NewsPresenter", t.getMessage(), t);
             }
         });
+
 
         //
 //        List<NewsResponse> newsResponse = new LinkedList<>();

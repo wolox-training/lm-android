@@ -3,6 +3,7 @@ package ar.com.wolox.android.training.ui.home;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.net.sip.SipSession;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,10 +30,10 @@ import butterknife.ButterKnife;
 import static android.renderscript.Element.DataKind.USER;
 //import org.joda.time.Da
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
     List<NewsResponse> newsList = new ArrayList<>();
-    CustomClassListener listener;
+    private ClickListener clickListener;
     int userId;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,24 +54,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         userId = id;
     }
 
+
     @Override
     public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_home_news, parent, false);
         ViewHolder vh = new ViewHolder(v);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onItemClick(v,vh.getAdapterPosition() );
-            }
-        });
+//        v.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                listener.onItemClick(v,vh.getAdapterPosition() );
+//            }
+//        });
         return vh;
     }
-
-    public Fragment onItemClick(View v, int position){
-        Fragment detailFragment = new DetailsFragment();
-        return detailFragment;
-    }
-
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
